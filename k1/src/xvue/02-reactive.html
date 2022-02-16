@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app"></div>
+
+<script>
+  function defineReactive(obj, key, val) {
+    observe(val)
+    Object.defineProperty(obj, key, {
+      get() {
+        console.log('get', key)
+        return val
+      },
+      set(newVal) {
+        console.log(val, newVal)
+        if(newVal !== val) {
+          val = newVal
+          console.log('updater')
+          updater(val)
+        }
+      }
+    })
+  }
+
+  function observe(obj) {
+    if(typeof obj !== 'object' || obj === null) {
+      return
+    }
+    Object.keys(obj).forEach(key => {
+      defineReactive(obj, key, obj[key])
+    })
+  }
+
+  function updater(text) {
+    const app = document.getElementById('app')
+    app.innerText = text
+  }
+
+  const obj = { time: '' }
+  observe(obj)
+
+  setInterval(() => {
+    obj.time = new Date().toLocaleTimeString()
+  }, 1000)
+
+
+</script>
+</body>
+</html>
