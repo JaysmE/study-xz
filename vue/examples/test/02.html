@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../../dist/vue.js"></script>
+</head>
+<body>
+<div id="app">{{ foo }}</div>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      arr: [0, 1, 2, 3],
+      /*dar: {
+        foo: {
+          ab: {
+            bc: 'xx'
+          }
+        }
+      },*/
+      foo: 'foo'
+    }
+  })
+  setTimeout(() => {
+    // app.dar.foo = 'fooooooo'
+  }, 1000)
+</script>
+</body>
+</html>

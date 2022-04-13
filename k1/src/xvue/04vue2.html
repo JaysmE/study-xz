@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>手写Vue2</title>
+  <script src="./xvue2.js"></script>
+</head>
+<body>
+<div id="demo"></div>
+
+<script>
+  const app = new Vue({
+    el: '#demo',
+    data: {
+      foo: 'foo'
+    },
+    render(h) {
+      return h('div', { id: 'demo' }, [
+        h('p', null, this.foo)
+      ])
+    }
+  })
+</script>
+</body>
+</html>

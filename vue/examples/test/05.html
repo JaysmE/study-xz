@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../../dist/vue.js"></script>
+</head>
+<body>
+<div id="demon">
+  <h1>{{ foo }}</h1>
+  <p>{{ bar }}</p>
+  <comp></comp>
+</div>
+<script>
+  Vue.component('comp', {
+    template: '<div>this is comp</div>'
+  })
+  const app = new Vue({
+    el: '#demon',
+    data: {
+      foo: '这里是foo',
+      bar: '这个是bar'
+    }
+  })
+</script>
+</body>
+</html>
